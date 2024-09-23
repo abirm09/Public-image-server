@@ -5,6 +5,8 @@ export type TImageData = {
   slug: string;
   base64: string;
   imgFormat: string;
+  isPrivate: boolean;
+  desc?: string;
 };
 
 export type TImage = TImageData & Document;

@@ -32,7 +32,7 @@ if (config.ENV === "development") {
 }
 
 app.get("/", (req, res) => {
-  res.send(["ok"]);
+  res.redirect("https://www.abirmahmud.top");
 });
 
 // api endpoints

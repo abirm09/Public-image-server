@@ -1,5 +1,5 @@
 import httpStatus from "http-status";
-import { TErrorMessages, TIErrorResponse } from "../types/error";
+import { TErrorMessages, TIErrorResponse } from "../types/response";
 
 const handleBSONError = (): TIErrorResponse => {
   const message = "Please provide a valid ID";

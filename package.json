@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "npx tsc",
-    "start": "./dist/server.js",
+    "start": "node ./dist/server.js",
     "prepare": "node .husky/install.mjs"
   },
   "lint-staged": {

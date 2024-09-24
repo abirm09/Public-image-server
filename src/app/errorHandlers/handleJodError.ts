@@ -1,6 +1,6 @@
 import httpStatus from "http-status";
 import { ZodError, ZodIssue } from "zod";
-import { TErrorMessages, TIErrorResponse } from "../types/error";
+import { TErrorMessages, TIErrorResponse } from "../types/response";
 
 const handleJodError = (err: ZodError): TIErrorResponse => {
   const errorMessages: TErrorMessages[] = err.issues.map((issue: ZodIssue) => ({

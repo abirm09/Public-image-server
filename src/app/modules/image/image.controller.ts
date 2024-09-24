@@ -5,7 +5,8 @@ import { ImageService } from "./images.service";
 
 const getImageFIle = catchAsync(async (req, res) => {
   const { imgBuffer, mimeType } = await ImageService.GetImageFIleFromDB(
-    req?.params?.slug
+    req?.params?.slug,
+    String(req.query.secret)
   );
   res.set("Content-Type", mimeType);
   res.set("Content-Length", imgBuffer.length.toString());
@@ -14,7 +15,6 @@ const getImageFIle = catchAsync(async (req, res) => {
 
 const uploadImage = catchAsync(async (req, res) => {
   const file = req.file as Express.Multer.File;
-
   await ImageService.uploadImageIntoDB(file, req.body);
 
   successResponse(res, {

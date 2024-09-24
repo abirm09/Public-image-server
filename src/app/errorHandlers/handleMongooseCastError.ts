@@ -1,6 +1,6 @@
 import httpStatus from "http-status";
 import mongoose from "mongoose";
-import { TErrorMessages, TIErrorResponse } from "../types/error";
+import { TErrorMessages, TIErrorResponse } from "../types/response";
 
 const handleMongooseCastError = (
   err: mongoose.Error.ValidationError

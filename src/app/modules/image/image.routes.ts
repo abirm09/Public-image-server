@@ -1,10 +1,16 @@
 import { Router } from "express";
 import { upload } from "../../config/multer";
+import authGuard from "../../middlewares/authGuard";
 import { ImageController } from "./image.controller";
 
 const route = Router();
 
-route.post("/", upload.single("image"), ImageController.uploadImage);
+route.post(
+  "/",
+  authGuard(),
+  upload.single("image"),
+  ImageController.uploadImage
+);
 
 route.get("/:slug", ImageController.getImageFIle);
 

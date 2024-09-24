@@ -1,4 +1,5 @@
-import { Document } from "mongoose";
+import { Document, Types } from "mongoose";
+import { TCategory } from "../category/category.interface";
 
 export type TImageData = {
   name: string;
@@ -7,6 +8,7 @@ export type TImageData = {
   imgFormat: string;
   isPrivate: boolean;
   desc?: string;
+  category: Types.ObjectId | TCategory;
 };
 
 export type TImage = TImageData & Document;

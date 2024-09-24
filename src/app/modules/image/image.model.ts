@@ -29,6 +29,11 @@ const ImageSchema = new Schema<TImage>(
     desc: {
       type: String,
     },
+    category: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "categories",
+    },
   },
   { timestamps: true, versionKey: false }
 );

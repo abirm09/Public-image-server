@@ -69,7 +69,26 @@ const GetImageFIleFromDB = async (slug: string, secret: string) => {
   return { imgBuffer, mimeType };
 };
 
+const GetImageStringFromDB = async (slug: string, secret: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let image: any = await Image.findOne({ slug: slug.toLowerCase() });
+
+  if (image?.isPrivate) {
+    const result = await checkAuth(secret);
+    if (!result) image = undefined;
+  }
+  let imgString;
+  if (!image) {
+    imgString = notFoundImage;
+  } else {
+    imgString = image?.base64;
+  }
+
+  return imgString;
+};
+
 export const ImageService = {
   uploadImageIntoDB,
   GetImageFIleFromDB,
+  GetImageStringFromDB,
 };

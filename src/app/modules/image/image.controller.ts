@@ -13,6 +13,14 @@ const getImageFIle = catchAsync(async (req, res) => {
   res.send(imgBuffer);
 });
 
+const getImageString = catchAsync(async (req, res) => {
+  const imgString = await ImageService.GetImageStringFromDB(
+    req?.params?.slug,
+    String(req.query.secret)
+  );
+  res.send(imgString);
+});
+
 const uploadImage = catchAsync(async (req, res) => {
   const file = req.file as Express.Multer.File;
   await ImageService.uploadImageIntoDB(file, req.body);
@@ -23,4 +31,4 @@ const uploadImage = catchAsync(async (req, res) => {
   });
 });
 
-export const ImageController = { uploadImage, getImageFIle };
+export const ImageController = { uploadImage, getImageFIle, getImageString };

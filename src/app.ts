@@ -38,6 +38,7 @@ app.get("/", (req, res) => {
 // api endpoints
 app.use("/api/v1", router);
 app.use("/i/:slug", ImageController.getImageFIle);
+app.use("/s/:slug", ImageController.getImageString);
 
 // Global error handler
 app.use(globalErrorhandler);

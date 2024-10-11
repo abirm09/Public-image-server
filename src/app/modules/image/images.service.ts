@@ -79,9 +79,9 @@ const GetImageStringFromDB = async (slug: string, secret: string) => {
   }
   let imgString;
   if (!image) {
-    imgString = notFoundImage;
+    imgString = `data:image/jpeg;base64,${notFoundImage}`;
   } else {
-    imgString = image?.base64;
+    imgString = `data:${image.imgFormat};base64,${image?.base64}`;
   }
 
   return imgString;
